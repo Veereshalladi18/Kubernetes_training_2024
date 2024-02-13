@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica1
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     run: pod
+ template:
+   metadata:
+     name: mypod1
+     labels:
+       run: pod
+   spec:
+     containers:
+       - name: myc
+         image: vimal13/apache-webserver-php
+

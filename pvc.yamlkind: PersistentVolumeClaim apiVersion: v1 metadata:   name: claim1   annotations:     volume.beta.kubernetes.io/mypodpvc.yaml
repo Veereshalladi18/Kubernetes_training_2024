@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+  labels:
+    concept: volume
+spec:
+  volumes:
+    - name: mypopvc
+      persistentVolumeClaim:
+        claimName: mypvc
+  containers:
+    - name: "myc1"
+      image: vimal13/apache-webserver-php
+      volumeMounts:
+        - mountPath: /var/www/html/image
+          name: mypopvc
